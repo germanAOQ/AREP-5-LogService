@@ -24,6 +24,11 @@ import static spark.Spark.*;
 
 public class SparkLogService {
     
+    /**
+     * 
+     * 
+     * @param args
+     */
     public static void main(String... args){
         port(getPort());
 
