@@ -50,10 +50,18 @@ public class SparkLogService {
                 result.put(jsonObj);
             }
             JSONArray resultDef = new JSONArray();
-            for(int i=result.length(); i>result.length()-10; i--){
-                resultDef.put(result.get(i-1));
+            if(result.length() > 10){
+                System.out.println(result.length());
+                int i = 0;
+                while(i<10){
+                    resultDef.put(result.get(result.length()-i-1));
+                    i++;
+                }
+            }else{
+                for(int i = result.length(); i>0; i--){
+                    resultDef.put(result.get(i-1));
+                }
             }
-
             //Mensaje mensaje = new Gson().fromJson(request.body(), Mensaje.class);
             return resultDef;
             //return new Gson().toJson(new StandardResponse(StatusResponse.SUCCESS, "Mensaje añadido"));
